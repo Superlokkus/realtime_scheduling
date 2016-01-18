@@ -19,13 +19,16 @@ struct periodic_task {
     TimeRep t_e;      /*!< execution time */
     TimeRep t_d;      /*!< deadline */
     
+    periodic_task() :
+    t_phi(0), t_p(0), t_e(0), t_d(0)
+    {}
     
     periodic_task(TimeRep t_phi, TimeRep t_p, TimeRep t_e, TimeRep t_d) :
     t_phi(0), t_p(t_p), t_e(t_e), t_d(t_d)
     {}
     
     periodic_task(TimeRep t_p, TimeRep t_e) :
-    periodic_task(TimeRep(0),t_p,t_e,t_p)
+    periodic_task(0,t_p,t_e,t_p)
     {}
     
     
@@ -37,6 +40,24 @@ std::ostream& operator<< (std::ostream &os, const periodic_task<TimeRep>& task){
     << task.t_p << "," << task.t_e << "," << task.t_d << ")";
     
     return os;
+}
+
+template <typename TimeRep>
+std::istream& operator>> (std::istream &is, periodic_task<TimeRep>& task){
+    
+    is >> task.t_phi;
+    is.ignore(std::numeric_limits<std::streamsize>::max(),',');
+    is >> task.t_p;
+    is.ignore(std::numeric_limits<std::streamsize>::max(),',');
+    is >> task.t_e;
+    is.ignore(std::numeric_limits<std::streamsize>::max(),',');
+    is >> task.t_d;
+    
+    if (!is) {
+        throw std::runtime_error("Ähm");
+    }
+    
+    return is;
 }
 
 
