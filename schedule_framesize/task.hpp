@@ -6,6 +6,7 @@
 
 #include <iostream>
 
+namespace schedule_framesize{
 /*!
  @brief Type to represent periodic tasks
  @tparam TimeRep Type of internal time representation
@@ -36,7 +37,7 @@ struct periodic_task {
 
 template <typename TimeRep>
 std::ostream& operator<< (std::ostream &os, const periodic_task<TimeRep>& task){
-    os << "T" << "(" << task.t_phi << ","
+    os << "(" << task.t_phi << ","
     << task.t_p << "," << task.t_e << "," << task.t_d << ")";
     
     return os;
@@ -44,7 +45,7 @@ std::ostream& operator<< (std::ostream &os, const periodic_task<TimeRep>& task){
 
 template <typename TimeRep>
 std::istream& operator>> (std::istream &is, periodic_task<TimeRep>& task){
-    
+    is.exceptions(std::istream::failbit|std::istream::badbit);
     is >> task.t_phi;
     is.ignore(std::numeric_limits<std::streamsize>::max(),',');
     is >> task.t_p;
@@ -52,13 +53,10 @@ std::istream& operator>> (std::istream &is, periodic_task<TimeRep>& task){
     is >> task.t_e;
     is.ignore(std::numeric_limits<std::streamsize>::max(),',');
     is >> task.t_d;
-    
-    if (!is) {
-        throw std::runtime_error("Ähm");
-    }
+
     
     return is;
 }
 
-
+}
 #endif
