@@ -23,6 +23,6 @@ set_property(TARGET schedule_framesize_cli PROPERTY CXX_STANDARD 11)
 set_property(TARGET schedule_framesize_cli PROPERTY CXX_STANDARD_REQUIRED TRUE)
 
 
-%enable_testing()
+#enable_testing()
 
-%add_test( basic pagefault_measure -n --memory 42)
+#add_test( basic pagefault_measure -n --memory 42)
