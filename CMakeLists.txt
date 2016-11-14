@@ -1,8 +1,8 @@
 cmake_minimum_required (VERSION 3.0)
 project (schedule_framesize)
 # The version number.
-set (PAGEFAULT_MEASURE_VERSION_MAJOR 0)
-set (PAGEFAULT_MEASURE_VERSION_MINOR 5)
+set (SCHEDULE_FRAMESIZE_VERSION_MAJOR 0)
+set (SCHEDULE_FRAMESIZE_VERSION_MINOR 5)
 set (PROJECT_SOURCE_DIR src)
 
 
