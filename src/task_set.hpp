@@ -9,7 +9,7 @@
 
 #include "task.hpp"
 
-namespace schedule_framesize {
+namespace realtime_scheduling {
     
     class task_set {
     public:

@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-namespace schedule_framesize{
+namespace realtime_scheduling{
 /*!
  @brief Type to represent periodic tasks
  @tparam TimeRep Type of internal time representation

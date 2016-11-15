@@ -11,8 +11,8 @@ int main(int argc, const char * argv[]) {
     using std::cout; using std::endl;
     
     cout << "Enter tasks like \nT<i>(<phi>,<p>,<e>,<d>)\nT<i+1>(<phi>,<p>,<e>,<d>)\n..." << endl;
-    
-    schedule_framesize::task_set foo;
+
+    realtime_scheduling::task_set foo;
     
     while(std::cin >> foo);
     
