@@ -1,14 +1,11 @@
 cmake_minimum_required (VERSION 3.0)
-project (schedule_framesize)
-# The version number.
-set (SCHEDULE_FRAMESIZE_VERSION_MAJOR 0)
-set (SCHEDULE_FRAMESIZE_VERSION_MINOR 5)
+project (realtime_scheduling VERSION 0.5)
+
 set (PROJECT_SOURCE_DIR src)
 
-
 configure_file (
-  "${PROJECT_SOURCE_DIR}/schedule_framesize.h.in"
-  "${PROJECT_BINARY_DIR}/schedule_framesize.h"
+  "${PROJECT_SOURCE_DIR}/realtime_scheduling.hpp.in"
+  "${PROJECT_BINARY_DIR}/realtime_scheduling.hpp"
   )
 include_directories("${PROJECT_BINARY_DIR}")
 
