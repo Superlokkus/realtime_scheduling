@@ -38,8 +38,8 @@ namespace schedule_framesize {
         periodic_task<task_set::time_rep> periodic_task;
         is.ignore(std::numeric_limits<std::streamsize>::max(),'(');
         is >> periodic_task;
-        task_set::task_t task(id, periodic_task);
-        task_set.tasks.insert(task);
+        task_set::task_t task(std::move(id), std::move(periodic_task));
+        task_set.tasks.insert(std::move(task));
         
         return is;
     }
