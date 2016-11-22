@@ -4,8 +4,8 @@
 
 #include <iostream>
 
-#include "task.hpp"
-#include "task_set.hpp"
+#include <task.hpp>
+#include <task_set.hpp>
 
 int main(int argc, const char * argv[]) {
     using std::cout; using std::endl;

@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.0)
+cmake_minimum_required (VERSION 3.3)
 project (realtime_scheduling VERSION 0.5)
 
 set (PROJECT_SOURCE_DIR src)
@@ -9,15 +9,13 @@ configure_file (
   )
 include_directories("${PROJECT_BINARY_DIR}")
 
-set (CORE_SOURCE_FILES
-${PROJECT_SOURCE_DIR}/task_set.hpp
-${PROJECT_SOURCE_DIR}/task.hpp
-)
+add_subdirectory(${PROJECT_SOURCE_DIR}/task_lib)
 
 
-add_executable(schedule_framesize_cli ${PROJECT_SOURCE_DIR}/schedule_framesize_cli.cpp ${CORE_SOURCE_FILES})
+add_executable(schedule_framesize_cli ${PROJECT_SOURCE_DIR}/schedule_framesize_cli.cpp)
 set_property(TARGET schedule_framesize_cli PROPERTY CXX_STANDARD 11)
 set_property(TARGET schedule_framesize_cli PROPERTY CXX_STANDARD_REQUIRED TRUE)
+target_link_libraries(schedule_framesize_cli task_lib)
 
 
 #enable_testing()
